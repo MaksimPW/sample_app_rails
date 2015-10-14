@@ -7,37 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
-          <nav>
-            <%= link_to "sample app", root_path, id: "logo" %>
-            <ul class="pull-right list-inline">
-              <li><%= link_to "Home",    root_path %></li>
-              <li><%= link_to "Help",    help_path %></li>
-              <li><%= link_to "Sign in", signup_path %></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
-
-    <div class="container">
-      <%= yield %>
-    </div>
-
-<footer class="footer">
-  <small>
-    <a href="http://railstutorial.org/">Rails Tutorial</a>
-    by Michael Hartl
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", '#' %></li>
-      <li><a href="http://news.railstutorial.org/">News</a></li>
-    </ul>
-  </nav>
-</footer>
+<%= render 'layouts/header' %>
+<% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+<div class="container">
+    <%= yield %>
+</div>
+<%= render 'layouts/footer' %>
+<%= debug(params) if Rails.env.development?  %>
   </body>
 </html>
