@@ -6,6 +6,8 @@ gem 'rails', '4.2.4'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem 'sqlite3'
